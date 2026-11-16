@@ -5,7 +5,7 @@ import Darwin
 import Combine
 
 @main
-struct GestaltWatchApp: App {
+struct CoolerHermesWatchApp: App {
     @StateObject private var helper = WatchMGHelper()
     var body: some Scene {
         WindowGroup {
@@ -73,7 +73,7 @@ final class WatchMGHelper: NSObject, ObservableObject, WCSessionDelegate {
                         throw WatchMGWire.failure("The selected Apple Watch has changed. Reload before continuing.")
                     }
                     var error: NSError?
-                    guard GestaltWatchStartRespring(&error) else { throw error ?? WatchMGWire.failure("Could not prepare Watch interface restart.") }
+                    guard CoolerHermesWatchStartRespring(&error) else { throw error ?? WatchMGWire.failure("Could not prepare Watch interface restart.") }
                     replyHandler(["accepted": true])
                     return
                 }

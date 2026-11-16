@@ -1,6 +1,6 @@
 //
 //  GestaltAccess.h
-//  GestaltEdit
+//  CoolerHermes
 //
 //  High-level service that uses worse_query to acquire a read/write sandbox
 //  extension, then reads, edits, saves and backs up

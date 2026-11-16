@@ -145,7 +145,7 @@ final class GestaltViewModel: ObservableObject {
         do {
             try access.connect()
             guard let dictionary = try access.readGestalt() as? [String: Any] else {
-                throw GestaltEditError.invalidPlist
+                throw CoolerHermesError.invalidPlist
             }
             plist = GestaltPlist(dict: dictionary)
             isDirty = false
@@ -192,7 +192,7 @@ final class GestaltViewModel: ObservableObject {
             }
             if changesModelName {
                 let name = modelName.trimmingCharacters(in: .whitespacesAndNewlines)
-                guard !name.isEmpty else { throw GestaltEditError.emptyModelName }
+                guard !name.isEmpty else { throw CoolerHermesError.emptyModelName }
                 try pending.setModelName(name)
             }
             var expectedConfiguration: AIRegionConfiguration?
@@ -277,7 +277,7 @@ final class GestaltViewModel: ObservableObject {
                 format: &format
             ) as? [String: Any],
                   dictionary["CacheExtra"] is [String: Any] else {
-                throw GestaltEditError.invalidBackup
+                throw CoolerHermesError.invalidBackup
             }
             let backup = try GestaltBackupStore.create(from: data, deviceID: selectedDevice == .appleWatch ? watchDeviceID : nil)
             refreshBackups()
@@ -304,7 +304,7 @@ final class GestaltViewModel: ObservableObject {
                 options: [],
                 format: &format
             ) as? [String: Any] else {
-                throw GestaltEditError.invalidBackup
+                throw CoolerHermesError.invalidBackup
             }
             save(GestaltPlist(dict: dictionary), expectedAIRegion: nil)
         } catch {
@@ -347,7 +347,7 @@ final class GestaltViewModel: ObservableObject {
             _ = try GestaltBackupStore.create(from: originalData)
             try access.saveGestalt(pendingPlist.dict)
             guard let verification = try access.readGestalt() as? [String: Any] else {
-                throw GestaltEditError.invalidPlist
+                throw CoolerHermesError.invalidPlist
             }
             let verifiedPlist = GestaltPlist(dict: verification)
 
@@ -356,11 +356,11 @@ final class GestaltViewModel: ObservableObject {
                 guard cacheExtra["h63QSdBCiT/z0WU6rdQv6Q"] as? String == "LL",
                       cacheExtra["yK+xavymRGZ3xWc1tb8XDg"] as? String == "LL/A",
                       cacheExtra["97JDvERpVwO+GHtthIh7hA"] as? String == expectedAIRegion.profile.regulatoryModel else {
-                    throw GestaltEditError.verificationFailed
+                    throw CoolerHermesError.verificationFailed
                 }
                 if expectedAIRegion.enablesSiriMode,
                    cacheExtra["a3n5T9sFtlyQ74NEp9ESxg"] as? Int != 2 {
-                    throw GestaltEditError.verificationFailed
+                    throw CoolerHermesError.verificationFailed
                 }
                 if expectedAIRegion.requiresDeviceSpoofing {
                     guard cacheExtra["A62OafQ85EJAiiqKn4agtg"] as? Int == 1,
@@ -368,7 +368,7 @@ final class GestaltViewModel: ObservableObject {
                           cacheExtra["h9jDsbgj7xIVeIQ8S3/X3Q"] as? String == expectedAIRegion.spoofedProductType,
                           cacheExtra["oYicEKzVTz4/CxxE05pEgQ"] as? String == expectedAIRegion.spoofedHardwareModel,
                           cacheExtra["5pYKlGnYYBzGvAlIU8RjEQ"] as? String == expectedAIRegion.spoofedCPUModel else {
-                        throw GestaltEditError.verificationFailed
+                        throw CoolerHermesError.verificationFailed
                     }
                 }
             }
@@ -495,7 +495,7 @@ final class GestaltViewModel: ObservableObject {
                 guard generation == watchGeneration else { return }
                 let dictionary = try WatchMGWire.decode(verified)
                 guard NSDictionary(dictionary: dictionary).isEqual(to: pending.dict) else {
-                    throw GestaltEditError.verificationFailed
+                    throw CoolerHermesError.verificationFailed
                 }
                 plist = GestaltPlist(dict: dictionary)
                 watchSnapshot = verified
@@ -529,7 +529,7 @@ final class GestaltViewModel: ObservableObject {
     }
 }
 
-private enum GestaltEditError: LocalizedError {
+private enum CoolerHermesError: LocalizedError {
     case invalidPlist
     case invalidBackup
     case verificationFailed

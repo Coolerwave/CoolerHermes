@@ -54,7 +54,7 @@ enum GestaltBackupStore {
         let directory: URL
         if let deviceID {
             guard let uuid = UUID(uuidString: deviceID) else {
-                throw NSError(domain: "GestaltEdit.Backups", code: 1,
+                throw NSError(domain: "CoolerHermes.Backups", code: 1,
                               userInfo: [NSLocalizedDescriptionKey: String(localized: "Invalid Apple Watch identifier.")])
             }
             directory = root.appendingPathComponent("AppleWatch-\(uuid.uuidString)", isDirectory: true)

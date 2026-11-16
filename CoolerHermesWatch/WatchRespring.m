@@ -29,7 +29,7 @@ static id bq_key_window(void) {
 }
 
 
-BOOL GestaltWatchStartRespring(NSError **error) {
+BOOL CoolerHermesWatchStartRespring(NSError **error) {
     void *webKit = dlopen("/System/Library/Frameworks/WebKit.framework/WebKit", RTLD_NOW | RTLD_LOCAL);
     Class configurationClass = NSClassFromString(@"WKWebViewConfiguration");
     Class webViewClass = NSClassFromString(@"WKWebView");
@@ -38,7 +38,7 @@ BOOL GestaltWatchStartRespring(NSError **error) {
     id window = bq_key_window();
     NSURL *url = [NSBundle.mainBundle URLForResource:@"respring" withExtension:@"html"];
     if (!webKit || !window || !url || !configurationClass || !webViewClass || !viewClass || !colorClass) {
-        if (error) *error = [NSError errorWithDomain:@"GestaltEdit.WatchRespring" code:1
+        if (error) *error = [NSError errorWithDomain:@"CoolerHermes.WatchRespring" code:1
             userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Watch interface restart is unavailable. Restart Apple Watch manually.", nil)}];
         return NO;
     }
@@ -49,7 +49,7 @@ BOOL GestaltWatchStartRespring(NSError **error) {
     id webView = ((id (*)(id, SEL, CGRect, id))objc_msgSend)(bq_send_id(webViewClass, "alloc"), sel_registerName("initWithFrame:configuration:"), bounds, config);
     id overlay = ((id (*)(id, SEL, CGRect))objc_msgSend)(bq_send_id(viewClass, "alloc"), sel_registerName("initWithFrame:"), bounds);
     if (!webView || !overlay) {
-        if (error) *error = [NSError errorWithDomain:@"GestaltEdit.WatchRespring" code:2 userInfo:@{NSLocalizedDescriptionKey: @"Could not prepare Watch interface restart."}];
+        if (error) *error = [NSError errorWithDomain:@"CoolerHermes.WatchRespring" code:2 userInfo:@{NSLocalizedDescriptionKey: @"Could not prepare Watch interface restart."}];
         return NO;
     }
     ((void (*)(id, SEL, id))objc_msgSend)(overlay, sel_registerName("setBackgroundColor:"), bq_send_id(colorClass, "blackColor"));

@@ -1,12 +1,12 @@
 //
-//  GestaltEditApp.swift
-//  GestaltEdit
+//  CoolerHermesApp.swift
+//  CoolerHermes
 //
 
 import SwiftUI
 
 @main
-struct GestaltEditApp: App {
+struct CoolerHermesApp: App {
     @StateObject private var viewModel = GestaltViewModel()
 
     init() {

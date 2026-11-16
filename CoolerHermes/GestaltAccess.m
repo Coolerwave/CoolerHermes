@@ -1,6 +1,6 @@
 //
 //  GestaltAccess.m
-//  GestaltEdit
+//  CoolerHermes
 //
 //  Access via the forcequitOS/worse_query App Group symlink PoC.
 

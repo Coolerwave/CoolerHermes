@@ -1,7 +1,7 @@
 import Foundation
 
 // Run from the repository root:
-// xcrun swiftc GestaltEdit/GestaltModels.swift Tests/DeviceProfiles/main.swift -o /tmp/gestalt-device-tests && /tmp/gestalt-device-tests
+// xcrun swiftc CoolerHermes/GestaltModels.swift Tests/DeviceProfiles/main.swift -o /tmp/gestalt-device-tests && /tmp/gestalt-device-tests
 let productKey = "0+nc/Udy4WNG8S+Q7a/s1A"
 let marketingKeys = ["Z/dqyWS6OZTRy10UcmUAhw", "bbtR9jQx50Fv5Af/affNtA"]
 let newDevices = [

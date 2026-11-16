@@ -14,6 +14,6 @@ enum WatchMGWire {
         return result
     }
     static func failure(_ message: String) -> NSError {
-        NSError(domain: "GestaltEdit.Watch", code: 1, userInfo: [NSLocalizedDescriptionKey: message])
+        NSError(domain: "CoolerHermes.Watch", code: 1, userInfo: [NSLocalizedDescriptionKey: message])
     }
 }

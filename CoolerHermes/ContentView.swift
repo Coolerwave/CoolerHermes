@@ -11,7 +11,7 @@ struct ContentView: View {
                     TweakWorkbench()
                         .tabItem { Label("Tweaks", systemImage: "wand.and.stars") }
 
-                    NavigationStack { AdvancedGestaltEditor().id(viewModel.deviceContextID) }
+                    NavigationStack { AdvancedFieldEditor().id(viewModel.deviceContextID) }
                         .tabItem { Label("Advanced", systemImage: "slider.horizontal.3") }
 
                     BackupLibrary().id(viewModel.deviceContextID)
@@ -315,7 +315,7 @@ private struct BackupRow: View {
     }
 }
 
-private struct AdvancedGestaltEditor: View {
+private struct AdvancedFieldEditor: View {
     @EnvironmentObject private var viewModel: GestaltViewModel
 
     @State private var searchText = ""
