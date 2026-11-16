@@ -92,7 +92,7 @@ final class WatchConnection: NSObject, ObservableObject, WCSessionDelegate {
     private func request(_ message: [String: Any]) async throws -> [String: Any] {
         refresh()
         guard isPaired, isInstalled, isReachable else {
-            throw WatchMGWire.failure(String(localized: "Open GestaltEdit Helper on your Apple Watch and keep it nearby, then reload."))
+            throw WatchMGWire.failure(String(localized: "Open CoolerHermes Helper on your Apple Watch and keep it nearby, then reload."))
         }
         // WCSession provides a timeout error; never retry a mutation automatically.
         return try await withCheckedThrowingContinuation { continuation in

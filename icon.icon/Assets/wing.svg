@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <path d="M300 690 C300 500 420 290 760 200 C740 380 620 600 300 690 Z" fill="#fff"/>
+  <path d="M300 690 C335 590 470 500 800 470 C760 610 620 690 300 690 Z" fill="#fff" fill-opacity="0.82"/>
+  <path d="M300 690 C370 640 510 630 790 690 C720 760 560 780 300 690 Z" fill="#fff" fill-opacity="0.64"/>
+</svg>

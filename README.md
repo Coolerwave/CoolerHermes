@@ -1,71 +1,52 @@
-<div align="center">
+# CoolerHermes
 
-<img src="docs/icon.png" alt="GestaltEdit app icon" width="128" height="128">
+**Hermès and Ultra watch faces on the Apple Watch you already own.**
 
-# GestaltEdit
+Apple keeps those faces locked to hardware you have to pay extra for. CoolerHermes unlocks them from your iPhone. You don't need a jailbreak or a paid developer account, and a free Apple ID is enough.
 
-**A MobileGestalt utility that runs directly on iPhone and iPad**
+## What you get
 
-<a href="https://trendshift.io/repositories/128548?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-128548" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/128548/daily?language=Swift" alt="frs0n%2FGestaltEdit | Trendshift" width="250" height="55"/></a>
-<a href="https://trendshift.io/repositories/128548?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-128548" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/128548/weekly?language=Swift" alt="frs0n%2FGestaltEdit | Trendshift" width="250" height="55"/></a>
+- Hermès faces on any supported Apple Watch
+- Ultra faces on any supported Apple Watch
+- Siri AI for US-region setups
+- A switch for each feature, so you only change what you want
+- A backup saved before every change, with one-tap restore
+- A raw key editor for anything the switches don't cover
 
-<p>
-  <a href="https://github.com/frs0n/GestaltEdit/releases/latest"><img src="https://img.shields.io/github/v/release/frs0n/GestaltEdit?style=flat-square&label=release&color=6E56CF" alt="Latest release"></a>
-  <a href="https://github.com/frs0n/GestaltEdit/releases"><img src="https://img.shields.io/github/downloads/frs0n/GestaltEdit/total?style=flat-square&label=downloads&color=6E56CF" alt="Downloads"></a>
-  <a href="https://github.com/frs0n/GestaltEdit/stargazers"><img src="https://img.shields.io/github/stars/frs0n/GestaltEdit?style=flat-square&color=6E56CF" alt="Stars"></a>
-  <img src="https://img.shields.io/badge/iOS%20%7C%20iPadOS-27-000000?style=flat-square&logo=apple&logoColor=white" alt="Platform">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0--or--later-6E56CF?style=flat-square" alt="GPL-3.0-or-later"></a>
-</p>
+## How it works
 
-<a href="https://github.com/frs0n/GestaltEdit/releases/latest"><b>Download IPA</b></a> ·
-<a href="#requirements">Requirements</a> ·
-<a href="#install">Install</a> ·
-<a href="README.zh-CN.md">简体中文</a>
+1. Install CoolerHermes on your iPhone.
+2. Install the small helper on your Apple Watch.
+3. Open the app, link your watch, flip the faces you want.
+4. Tap Apply. The watch reloads and the faces are there.
 
-</div>
+## Before you start
 
-Edit `com.apple.MobileGestalt.plist` on-device. Capability presets, a full field editor, and backup/restore.
+- iPhone running iOS or iPadOS 26 or newer
+- An Apple Watch on a supported watchOS release
+- Developer Mode turned on, on both devices
+- Any sideloading tool that signs with a free Apple ID
 
-> [!WARNING]
-> This app uses private APIs and modifies system cache data. Bad MobileGestalt values can break system features and may require restoring the device. Use only on devices you own.
+## Setup guide
 
-> [!IMPORTANT]
-> GestaltEdit is free and its source is public. Without authorization, you may not sell it.
+**iPhone**
 
-## Features
+Grab `CoolerHermes.ipa` from the Releases page, sign it with your sideloading tool, and install it. Then open Settings → General → VPN & Device Management and trust your certificate.
 
-**Presets** — Dynamic Island, device model name, boot chime, charge limit, tap to wake, Camera Control, Apple Pencil, Action Button, Collision SOS, Always-On Display, wallpaper parallax, Stage Manager, iPad app compatibility, Siri AI US region, and more. Tick what you want, tap Apply.
+**Apple Watch**
 
-**Field editor** — Search and edit any MobileGestalt key by hand when a preset doesn't cover it.
+The helper has to be trusted separately on the watch, so repeat the trust step there too. We use WatchBridge to push the iPhone app and the watch helper together. It's a community tool and not part of this project.
 
-**Backups** — Every write is backed up automatically. Back up, import, export, and restore at any time.
+After that, open CoolerHermes, expand the device card at the top, connect your watch, and you're set.
 
-## Requirements
+## Good to know
 
-- iOS / iPadOS 26.0 or later
-- Developer Mode enabled
-- A signing tool such as [iLoader](https://github.com/nab138/iloader)
+- Free Apple ID accounts allow a few sideloaded apps at once. If install fails with a limit error, remove one old app and retry.
+- The backup is made automatically. Restore it from inside the app before you ever delete CoolerHermes.
+- CoolerHermes isn't affiliated with or endorsed by Apple or Hermès. You use it at your own risk.
 
-## Install
+## Credits and license
 
-1. Download `GestaltEdit.ipa` from [Releases](https://github.com/frs0n/GestaltEdit/releases/latest).
-2. Install [iLoader](https://iloader.app/), connect your device, and sign in with your Apple ID (used only for local signing).
-3. Import the IPA to sign and install it, then trust the certificate under Settings → General → VPN & Device Management.
+Built on [GestaltEdit](https://github.com/frs0n/GestaltEdit) and the open-source work behind it, modified (see git history). Full notices are in `LICENSE` and the bundled license files.
 
-## Apple Watch
-
-Expand the device connection row at the top of Tools and select the active Apple Watch paired with your iPhone.
-
-For Apple Watch support, we recommend signing with [WatchBridge](https://github.com/AdminZachary/WatchBridge). This community tool can enable Developer Mode and install an IPA containing both the iPhone app and the Watch app. It is not affiliated with this project.
-
-## Credits
-
-- [Nugget](https://github.com/leminlimez/Nugget) — presets and iPadOS support
-- [FilzaSlop](https://github.com/0xjohnnydev/FilzaSlop), [worse_query](https://github.com/forcequitOS/worse_query), [0xJohnny](https://x.com/0xjohnny) — file access research
-- [neospring](https://github.com/rooootdev/neospring) — respring implementation
-
-Not affiliated with Apple or the projects above.
-
-## License
-
-[GNU General Public License v3.0 or later](LICENSE).
+CoolerHermes is released under the [GNU General Public License v3.0 or later](LICENSE).

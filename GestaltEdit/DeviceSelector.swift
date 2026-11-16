@@ -81,9 +81,9 @@ struct DeviceSelector: View {
                         if !watch.isPaired {
                             Text("Open the Watch app on this iPhone and pair your Apple Watch first.")
                         } else if !watch.isInstalled {
-                            Text("Open the Watch app on this iPhone, find GestaltEdit in Available Apps, and tap Install. Then open GestaltEdit Helper on your Apple Watch.")
+                            Text("Open the Watch app on this iPhone, find CoolerHermes in Available Apps, and tap Install. Then open CoolerHermes Helper on your Apple Watch.")
                         } else {
-                            Text("Open GestaltEdit Helper on your Apple Watch and keep it nearby, then reload.")
+                            Text("Open CoolerHermes Helper on your Apple Watch and keep it nearby, then reload.")
                         }
                         if watch.isPaired && watch.isInstalled {
                             Button("Connect") {

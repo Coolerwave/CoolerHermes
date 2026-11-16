@@ -11,7 +11,7 @@ struct GestaltWatchApp: App {
         WindowGroup {
             VStack(spacing: 12) {
                 Image(systemName: "iphone.and.arrow.right.inward").font(.largeTitle)
-                Text("GestaltEdit Helper").font(.headline)
+                Text("CoolerHermes Helper").font(.headline)
                 Text(helper.status).font(.footnote).multilineTextAlignment(.center)
             }
             .padding()
@@ -23,7 +23,7 @@ struct GestaltWatchApp: App {
 // queued/background application contexts never execute writes.
 @MainActor
 final class WatchMGHelper: NSObject, ObservableObject, WCSessionDelegate {
-    @Published var status = String(localized: "Open GestaltEdit on your iPhone to manage this watch.")
+    @Published var status = String(localized: "Open CoolerHermes on your iPhone to manage this watch.")
     private let access = GestaltAccess.shared()
     private let identifier: String
     private lazy var service = WatchMGService(
