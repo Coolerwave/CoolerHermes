@@ -9,13 +9,13 @@ struct ContentView: View {
         Group {
                 TabView {
                     TweakWorkbench()
-                        .tabItem { Label("Tools", systemImage: "switch.2") }
+                        .tabItem { Label("Tweaks", systemImage: "wand.and.stars") }
 
                     NavigationStack { AdvancedGestaltEditor().id(viewModel.deviceContextID) }
-                        .tabItem { Label("Fields", systemImage: "list.bullet.rectangle") }
+                        .tabItem { Label("Advanced", systemImage: "slider.horizontal.3") }
 
                     BackupLibrary().id(viewModel.deviceContextID)
-                        .tabItem { Label("Restore", systemImage: "archivebox") }
+                        .tabItem { Label("Backups", systemImage: "clock.arrow.circlepath") }
                 }
                 .disabled(viewModel.isBusy)
                 .task { viewModel.load() }
