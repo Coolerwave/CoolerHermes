@@ -139,7 +139,7 @@ enum WatchTweakCatalog {
               let data = current.dict["CacheData"] as? Data else { throw error }
         let currentClass = integer(in: data, offset: offset)
         let options = ultraFaceClasses(plist: current, build: build, directory: directory)
-        // Match HermesEnabler's extra checks for class 38 and switching back
+        // Extra checks for class 38 and switching back
         // from it. A default class-29 enable retains the existing behavior.
         guard value != defaultClass || (currentClass != defaultClass && options.contains(currentClass)) else { return }
         guard !hardwareIdentifier.isEmpty,
