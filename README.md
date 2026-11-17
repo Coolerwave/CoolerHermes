@@ -93,7 +93,7 @@ Yes. A backup is saved before every change, and Restore is inside the app.
 
 ## Credits and license
 
-Built on [GestaltEdit](https://github.com/frs0n/GestaltEdit) and the open-source work behind it, modified (see git history). Full notices are in `LICENSE` and the bundled license files.
+Built on [GestaltEdit](https://github.com/frs0n/GestaltEdit) and the open-source work behind it, modified (see git history). The idea of enabling Hermès faces comes from [HermesEnabler](https://github.com/pookjw/HermesEnabler) by pookjw. Full notices are in `LICENSE` and the bundled license files.
 
 CoolerHermes is released under the [GNU General Public License v3.0 or later](LICENSE).
 
